@@ -1,0 +1,21 @@
+version: 2.1
+jobs:
+  build:
+    steps:
+      - checkout
+      - run
+        name: build
+        command: echo "Bulding..."
+  test:
+    steps:
+      - checkout
+      - run
+        name: test
+        command: echo "Testing..."
+        
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
