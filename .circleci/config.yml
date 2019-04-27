@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: circleci/node:4.8.2
     steps:
       - checkout
       - run:
@@ -8,6 +10,8 @@ jobs:
           command: echo "building..."
 
   test:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: circleci/node:4.8.2 
     steps:
       - checkout
       - run:
