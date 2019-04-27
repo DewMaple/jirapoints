@@ -1,0 +1,27 @@
+body            { font-family: sans-serif; background: #eee; }
+h1, h2          { color: #377ba8; font-family: 'Georgia', serif; margin: 0; padding-bottom: 10px;}
+a               { color: blue; font-size: 1.3em; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+p               { padding-top: 10px; }
+
+.page           { margin: 2em auto; width: 50em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+.entries        { list-style: none; margin: 0; padding: 0; }
+.entries li     { margin: 0em 0.5em; }
+.entries li h2  { margin-left: -1em; }
+/*.add-entry      { font-size: 1em; border-bottom: 1px solid #ccc; }*/
+.add-entry      { font-size: 1em; border-bottom: 1px;}
+.add-entry .form-group .form-control  { padding-top: 10px; }
+.metanav        { text-align: right; font-size: 0.8em; padding: 0.3em;
+                  margin-bottom: 1em; background: white; }
+.flash          { background: green; padding: 0.5em;
+                  border: 1px solid #aacbe2; }
+.error          { background: #f0d6d6; padding: 0.5em; }
+#message #body       {margin: 2em auto; width: 50em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+#loginform      { margin:100px auto; }
+#loginlink a    { color: #ffffff}
+.content        { border-bottom : 1px dashed #ccc;}
+.caozuo a       { font-size: 1em;}
+/*#save           { padding-top: 10px}*/

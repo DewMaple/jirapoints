@@ -1,0 +1,90 @@
+<!doctype html>
+<title xmlns="http://www.w3.org/1999/html">URP Iteration Point Stat</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<script src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script type=text/javascript>
+    $(function () {
+        var project_name = $("input[name='project_name']").val();
+        var project_iterator = $("input[name='project_iterator']").val();
+        var skypelist = $("textarea[name='skypelist']").val();
+        request_data = {project_name: project_name, project_iterator: project_iterator, skypelist: skypelist}
+        $('#send_points').bind('click', function () {
+            $.get("/send_points", request_data, function (status) {
+//        console.log(status);
+                if (status) {
+                    $(".message").text("发送成功");
+                } else {
+                    $(".message").text("发送失败");
+                }
+            });
+        });
+    });
+</script>
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">×</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block page_content %}
+    {% endblock %}
+</div>
+{% endblock %}
+
+<p class="message"></p>
+
+<div id="body" class="page">
+    {% block body %}
+
+    <div id="iterform">
+        <form class="form-horizontal" role="form" action="{{ url_for('points') }}" method=get>
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="input01">项目名称</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="project_name" value="{{ project_name }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="input01">当前迭代</label>
+
+                    <div class="col-sm-4">
+                        <input type="number" class="form-control" name="project_iterator"
+                               value="{{ project_iterator }}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">skype账号</label>
+
+                    <div class="col-sm-4">
+                        <textarea class="form-control" name="skypelist" readonly>{{ skypelist }}</textarea>
+                    </div>
+                </div>
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button class="btn btn-primary btn-block" type="submit">查询</button>
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn btn-primary btn-block" type="button" id="send_points">发送skype</button>
+                </div>
+            </fieldset>
+
+        </form>
+        <div class="result">
+            <p>{{ result }}</p>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+
+
+
