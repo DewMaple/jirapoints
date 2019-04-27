@@ -4,14 +4,14 @@ jobs:
     steps:
       - checkout
       - run
-        name: build
-        command: echo "Bulding..."
+          name: build stage
+          command: echo "Bulding..."
   test:
     steps:
       - checkout
       - run
-        name: test
-        command: echo "Testing..."
+          name: test stage
+          command: echo "Testing..."
 
 workflows:
   version: 2
