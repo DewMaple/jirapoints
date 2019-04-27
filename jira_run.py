@@ -4,8 +4,9 @@ import time
 
 import schedule
 
-from skype_api import skype_api
 from jira_api import jira_api
+from skype.skype_api import skype_api
+
 
 def get_chat_for_urp_iteration(self):
         chat = None
