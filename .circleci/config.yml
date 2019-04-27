@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           command: echo "testing..."
-          
+
 workflows:
   version: 2
   build_and_test:
