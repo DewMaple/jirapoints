@@ -11,7 +11,7 @@ jobs:
 
   test:
     docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/node:4.8.2 
+      - image: circleci/node:4.8.2
     steps:
       - checkout
       - run:
@@ -23,3 +23,5 @@ workflows:
     jobs:
       - build
       - test
+          requires:
+            - build
